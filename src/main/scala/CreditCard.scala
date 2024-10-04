@@ -15,14 +15,14 @@
      // to pair each digit with its index in the reversed array - for eg 1234 -> (1, 0), (2,1), (3,2), (4,3)
      // Map function processes each digit along with its index
      val sum: Int = digits.zipWithIndex.map { case (digit, idx) =>
-       // if the index is even, the digit is doubled
+       // if the index is odd, the digit is doubled
        if (idx % 2 == 1) {
          val doubled = digit * 2
 
          //if doubled value is greater than 9, we subtract 9 from it
          if (doubled > 9) doubled - 9 else doubled
        } else {
-         // if the digit is odd it is left unchanged
+         // if the index is even it is left unchanged
          digit
        }
 
