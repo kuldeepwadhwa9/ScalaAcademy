@@ -9,8 +9,6 @@ class SubstitutionCipher {
     'Z' -> 'L'
   )
 
-  private val reverseCipherMap: Map[Char, Char] = cipherMap.map(_.swap)
-
    def encode(plainText: String): String = {
     plainText.map {
       case c if c.isLetter =>
@@ -21,6 +19,7 @@ class SubstitutionCipher {
   }
 
    def decode(cipherText: String): String = {
+     val reverseCipherMap: Map[Char, Char] = cipherMap.map(a => a.swap)
     cipherText.map {
       case c if c.isLetter =>
         val upperC = c.toUpper
@@ -31,14 +30,4 @@ class SubstitutionCipher {
 
 }
 
-object SubstitutionCipher extends SubstitutionCipher {
-
-  private val plainText = "HELLO WORLD"
-  private val encodeText = SubstitutionCipher.encode(plainText)
-  private val decodeText = SubstitutionCipher.decode(encodeText)
-
-  println(s"Original text " + plainText)
-  println(s"Encoded text " + encodeText)
-  println(s"Decoded text " + decodeText)
-
-}
+object SubstitutionCipher extends SubstitutionCipher
